@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import router from "./routes/routes.js";
 dotenv.config({
   path: "./env",
 });
@@ -29,6 +30,8 @@ app.get("/", (req, res) => {
     message: "clicked on home page",
   });
 });
+
+app.use("/api", router);
 
 app.listen(port, () => {
   console.log("server is listening on port 3001");
